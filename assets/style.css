@@ -14,26 +14,50 @@ p {
 	padding-top: 10px;
 }
 
-input.form-control {
-	margin-top: 10px;
-}
-
-div.form-group.row button, button.return-button {
-	width: 100%;
-}
-
-button.return-button {
-	margin-top: 20px;
-}
-
 .btn-light {
 	background: #f0f1f9;
 	border-color: #f0f1f9;
 }
 
+/* Cases Form */
+
+input.form-control {
+	margin-top: 10px;
+}
+
+/*div.form-group.row input.form-control {
+	margin-right: 20px;
+	width:;
+}*/
+
+div.form-group.row button, button.return-button {
+	width: 100%;
+}
+
 input.code-input {
 	font-family: monospace;
 	font-size: 15px;
+}
+
+div.cases-checkbox {
+	text-align: center;
+	padding-top: 6px;
+}
+
+div.form-group.row div.form-control {
+	margin-top: 10px;
+	border: none;
+}
+
+div.form-group.row div.form-control input, 
+div.form-group.row div.form-control label {
+	padding-bottom: 2px;
+}
+
+/* Return Page */
+
+button.return-button {
+	margin-top: 20px;
 }
 
 textarea.output {

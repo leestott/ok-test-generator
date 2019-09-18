@@ -18,8 +18,35 @@ function addCaseTest() {
 	var secondInput = document.createElement("INPUT");
 	secondInput.classList.add("form-control", "code-input");
 	secondInput.type = "text"; secondInput.name = "caseOutput" + caseTestCount; secondInput.placeholder = "Output";
+
+	var checkboxDiv = document.createElement("DIV");
+	checkboxDiv.classList.add("row");
 	
-	divNode.appendChild(firstInput); divNode.appendChild(secondInput);
+	var hiddenDiv = document.createElement("DIV");
+	hiddenDiv.classList.add("col-md-6", "cases-checkbox");
+	checkboxDiv.appendChild(hiddenDiv);
+
+	var hiddenInput = document.createElement("INPUT");
+	hiddenInput.classList.add("form-check-input");
+	hiddenInput.type = "checkbox"; hiddenInput.name = "hidden" + caseTestCount; hiddenInput.id = "hidden" + caseTestCount;
+	var hiddenLabel = document.createElement("LABEL");
+	hiddenLabel.classList.add("form-check-label");
+	hiddenLabel.for = "hidden1"; hiddenLabel.innerHTML = "Hidden"
+	hiddenDiv.appendChild(hiddenInput); hiddenDiv.appendChild(hiddenLabel);
+
+	var lockedDiv = document.createElement("DIV");
+	lockedDiv.classList.add("col-md-6", "cases-checkbox");
+	checkboxDiv.appendChild(lockedDiv);
+
+	var lockedInput = document.createElement("INPUT");
+	lockedInput.classList.add("form-check-input");
+	lockedInput.type = "checkbox"; lockedInput.name = "locked" + caseTestCount; lockedInput.id = "locked" + caseTestCount;
+	var lockedLabel = document.createElement("LABEL");
+	lockedLabel.classList.add("form-check-label");
+	lockedLabel.for = "locked1"; lockedLabel.innerHTML = "Locked"
+	lockedDiv.appendChild(lockedInput); lockedDiv.appendChild(lockedLabel);
+
+	divNode.appendChild(firstInput); divNode.appendChild(secondInput); divNode.appendChild(checkboxDiv);
 	
 	caseContainer.appendChild(divNode);
 }

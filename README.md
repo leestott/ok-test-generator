@@ -6,6 +6,11 @@ The generator is at [https://oktests.herokuapp.com](https://oktests.herokuapp.co
 
 ## Changelog
 
+**v0.1.0:**
+
+* Added hidden and locked test cases
+* Added scoring and points to suites
+
 **v0.0.1:**
 
 * Initial release!

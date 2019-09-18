@@ -6,25 +6,30 @@
 # # Structure of suites array
 # suites = [
 # 	{
-# 		:cases: [
+# 		:cases => [
 # 			{
-# 				:code: [
+# 				:code => [
 # 					{
-# 						:code: code,
-# 						:output: output
+# 						:code => "1 == 1",
+# 						:output => "True",
+#						:hidden => true,
+#						:locked => false
 # 					}
 # 				]
 # 			}
-# 		]
+# 		],
+#		:scored => true
 # 	}
 # ]
 
 # class for ok tests
 class OkTest
-	attr_accessor :test_name, :suites
+	attr_accessor :test_name, :points, :scored, :suites
 
-	def initialize test_name, suites
+	def initialize test_name, points, scored, suites
 		@test_name = test_name
+		@points = points
+		@scored = scored
 		@suites = []
 
 		# iterate through suits
@@ -39,18 +44,16 @@ class OkTest
 				# extract the array of code hashes, create new
 				# OkCase instance
 				code = test_case[:code]
-				curr_case = OkCase.new([])
+				cases = []
 
-				# iterate through hashes
-				for code_pair in code
-
-					# create new TestCase instance for code_pair
-					curr_case.add_case(TestCase.new(code_pair[:code], 
-						code_pair[:output]))
+				for code_hash in code 
+					curr_case = OkCase.new(code_hash[:code], code_hash[:output],
+						code_hash[:hidden], code_hash[:locked])
+					cases.push(curr_case)
 				end
 
 				# add the OkCase instance to test_cases
-				test_cases.push(curr_case)
+				test_cases.push(cases)
 			end
 
 			# push test_cases to the suites array
@@ -63,30 +66,19 @@ class OkTest
 	end
 end
 
-# class for individual set of cases
+# class for individual test case
 class OkCase
-	attr_accessor :cases
+	attr_accessor :code, :output, :hidden, :locked
 
-	def initialize cases
-		@cases = cases
+	def initialize code, output, hidden, locked
+		@code = code
+		@output = output
+		@hidden = hidden
+		@locked = locked
 	end
 
 	def add_case new_case
 		cases.push(new_case)
-	end
-
-	def get_binding
-		binding()
-	end
-end
-
-# class for individual test (meaning code => output pair)
-class TestCase 
-	attr_accessor :code, :output
-
-	def initialize code, output
-		@code = code
-		@output = output
 	end
 
 	def get_binding

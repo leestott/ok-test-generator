@@ -29,8 +29,14 @@
 
 		<form id="test-generator" action="/generate">
 
-			<div class="form-group">
-				<input type="text" name="testName" placeholder="Test Name" class="form-control">
+			<div class="form-group row">
+				<input type="text" name="testname" placeholder="Test Name" class="form-control col-md-3 offset-md-1">
+				<input type="text" name="points" placeholder="Points" class="form-control col-md-3 offset-md-1">
+				<div class="col-md-3 offset-md-1 form-control cases-checkbox">
+					<input type="checkbox" name="scored" class="form-check-input" id="scored">
+					<label class="form-check-label" for="scored">Scored</label>
+				</div>
+
 			</div>
 
 			<div id="case-container-1">
@@ -42,6 +48,18 @@
 					<div class="form-group col-md-4">
 						<input type="text" name="caseCode1" placeholder="Code" class="form-control code-input">
 						<input type="text" name="caseOutput1" placeholder="Output" class="form-control code-input">
+
+						<div class="row">
+							<div class="col-md-6 cases-checkbox">
+								<input type="checkbox" name="hidden1" class="form-check-input" id="hidden1">
+								<label class="form-check-label" for="hidden1">Hidden</label>
+							</div>
+							<div class="col-md-6 cases-checkbox">
+								<input type="checkbox" name="locked1" class="form-check-input" id="locked1">
+								<label class="form-check-label" for="locked1">Locked</label>
+							</div>
+						</div>
+
 					</div>
 
 				</div>

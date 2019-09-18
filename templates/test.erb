@@ -1,15 +1,22 @@
 test = {
 	"name": "<%= @test_name %>",
+	"points": <%= @points %>,
 	"suites": [ <% for suite in @suites %>
 		{
-			"cases": [ <% for test_case in suite %>
+			"cases": [ <% for test_case in suite %><% for code in test_case %>
 				{
-					"code": r"""<% for code_pair in test_case.cases; if code_pair.code != "" %>
-					>>> <%= code_pair.code %>
-					<%= code_pair.output %><% end; end %>
-					"""
-				}, <% end %>
-			]
+					"code": r"""
+					>>> <%= code.code %>
+					<%= code.output %>
+					""",
+					"hidden": <%= code.hidden ? "True" : "False" %>,
+					"locked": <%= code.locked ? "True" : "False" %>,
+				}, <% end %><% end %>
+			],
+			"scored": <%= @scored ? "True" : "False" %>
+			"setup": "",
+			"teardown": "",
+			"type": "doctest"
 		}, <% end %>
 	]
 }
