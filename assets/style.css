@@ -18,8 +18,12 @@ input.form-control {
 	margin-top: 10px;
 }
 
-div.form-group.row button {
+div.form-group.row button, button.return-button {
 	width: 100%;
+}
+
+button.return-button {
+	margin-top: 20px;
 }
 
 .btn-light {
