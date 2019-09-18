@@ -1,13 +1,12 @@
 test = {
-	"name": <%= curr_test.test_name %>,
-	"suites": [ <% for suite in curr_test.suites %>
+	"name": <%= @test_name %>,
+	"suites": [ <% for suite in @suites %>
 		{
 			"cases": [ <% for test_case in suite %>
 				{
-					"code": r"""<% for code_pair in test_case %>
+					"code": r"""<% for code_pair in test_case.cases; if code_pair.code != "" %>
 					>>> <%= code_pair.code %>
-					<%= code_pair.output %>
-					<% end %>
+					<%= code_pair.output %><% end; end %>
 					"""
 				}, 
 				<% end %>

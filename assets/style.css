@@ -1,0 +1,44 @@
+/*
+	CSS Styles for OkPy Test Generator
+*/
+
+h1 {
+	padding-top: 30px;
+}
+
+h3, h4 {
+	padding-top: 20px;
+}
+
+p {
+	padding-top: 10px;
+}
+
+input.form-control {
+	margin-top: 10px;
+}
+
+div.form-group.row button {
+	width: 100%;
+}
+
+.btn-light {
+	background: #f0f1f9;
+	border-color: #f0f1f9;
+}
+
+input.code-input {
+	font-family: monospace;
+	font-size: 15px;
+}
+
+textarea.output {
+	display: block;
+	height: 400px;
+	background: #eee;
+	color: #444;
+	overflow: scroll;
+	font-family: monospace;
+	font-size: 15px;
+	width: 100%;
+}
