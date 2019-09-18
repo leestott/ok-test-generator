@@ -22,9 +22,9 @@ class App < Sinatra::Base
 	end
 
 	# route to access custom JavaScript
-	get "/assets/addCases.js" do
+	get "/assets/core.js" do
 		content_type "text/javascript"
-		File.read("./assets/addCases.js")
+		File.read("./assets/core.js")
 	end
 
 	# route to generate tests
