@@ -6,6 +6,11 @@ The generator is at [https://oktests.herokuapp.com](https://oktests.herokuapp.co
 
 ## Changelog
 
+**v0.1.1:**
+
+* Fixed bug where last test case was not included in output
+* Reorganized `lib/test.rb` so that fewer abstraction barriers are violated
+
 **v0.1.0:**
 
 * Added hidden and locked test cases

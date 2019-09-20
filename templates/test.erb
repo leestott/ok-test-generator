@@ -3,17 +3,17 @@ test = {
 	"points": <%= @points == "" ? 0 : @points %>,
 	"suites": [ <% for suite in @suites %>
 		{
-			"cases": [ <% for test_case in suite %><% for code in test_case %>
+			"cases": [ <% for test_case in suite.cases %>
 				{
 					"code": r"""
-					>>> <%= code.code %>
-					<%= code.output %>
+					>>> <%= test_case.code %>
+					<%= test_case.output %>
 					""",
-					"hidden": <%= code.hidden ? "True" : "False" %>,
-					"locked": <%= code.locked ? "True" : "False" %>,
-				}, <% end %><% end %>
+					"hidden": <%= test_case.hidden ? "True" : "False" %>,
+					"locked": <%= test_case.locked ? "True" : "False" %>,
+				}, <% end %>
 			],
-			"scored": <%= @scored ? "True" : "False" %>,
+			"scored": <%= suite.scored ? "True" : "False" %>,
 			"setup": "",
 			"teardown": "",
 			"type": "doctest"
