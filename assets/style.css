@@ -74,14 +74,15 @@ div.container#body {
 	flex: 1 0 auto;
 }
 
-footer div#copyright {
+/*footer div#copyright {
 	padding: 20px 0;
 	text-align: center;
-}
-
-/*footer div a:link, footer div a:hover, footer div a:visited {
-	color: black;
 }*/
+
+footer div a:link, footer div a:hover, footer div a:visited {
+	color: black;
+	text-decoration: underline;
+}
 
 
 /* Cases Form */
