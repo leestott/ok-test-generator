@@ -3,25 +3,6 @@
 #####       by Chris Pyles        #####
 #######################################
 
-# # Structure of suites array
-# suites = [
-# 	{
-# 		:cases => [
-# 			{
-# 				:code => [
-# 					{
-# 						:code => "1 == 1",
-# 						:output => "True",
-#						:hidden => true,
-#						:locked => false
-# 					}
-# 				]
-# 			}
-# 		],
-#		:scored => true
-# 	}
-# ]
-
 # class for individual test case
 class OkCase
 	attr_accessor :code, :output, :hidden, :locked

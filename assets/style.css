@@ -2,6 +2,15 @@
 	CSS Styles for OkPy Test Generator
 */
 
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+html, body {
+	height: 100%;
+}
+
 h1 {
 	padding-top: 30px;
 }
@@ -15,9 +24,65 @@ p {
 }
 
 .btn-light {
-	background: #f0f1f9;
-	border-color: #f0f1f9;
+	background: #2badad;
+	border-color: #2badad;
+	color: white;
 }
+
+.btn-light:hover {
+	background: black;
+	border-color: black;
+	color: white;
+}
+
+/* Header */
+
+img#ok-logo {
+	height: 4.5rem;
+	display: inline-block;
+}
+
+header table#header {
+	width: 100%;
+}
+
+table#header div svg {
+	vertical-align: text-top;
+}
+
+header td#view-on-gh {
+	text-align: right;
+}
+
+svg {
+	fill: white;
+	margin-bottom: 4px;
+}
+
+/* Footer */
+
+footer {
+	/*position: sticky;*/
+	/*bottom: 0;*/
+	width: 100%;
+	background: rgb(241, 244, 251);
+	flex-shrink: 0;
+}
+
+/* include so that footer sticks to the bottom */
+div.container#body {
+	flex: 1 0 auto;
+}
+
+footer div#copyright {
+	padding: 20px 0;
+	text-align: center;
+}
+
+/*footer div a:link, footer div a:hover, footer div a:visited {
+	color: black;
+}*/
+
 
 /* Cases Form */
 
@@ -53,6 +118,7 @@ div.form-group.row div.form-control input,
 div.form-group.row div.form-control label {
 	padding-bottom: 2px;
 }
+
 
 /* Return Page */
 

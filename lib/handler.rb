@@ -12,7 +12,7 @@ class App < Sinatra::Base
 
 	# route to access homepage
 	get "/" do
-		File.read("./index.html")
+		File.read("./assets/index.html")
 	end
 
 	# route to access CSS
