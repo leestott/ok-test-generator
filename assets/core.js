@@ -4,6 +4,7 @@
 
 var caseTestCount = 1;
 
+// Function to add sections to form for new test cases
 function addCaseTest() {
 	var caseContainer = document.querySelector("#case-container");
 	caseTestCount++;
@@ -51,6 +52,7 @@ function addCaseTest() {
 	caseContainer.appendChild(divNode);
 }
 
+// Function to copy test output
 function copyOutput() {
 	var copyText = document.querySelector("#output-text");
 	copyText.select();
@@ -59,4 +61,12 @@ function copyOutput() {
 
 	var copyButton = document.querySelector("#copy-button")
 	copyButton.innerHTML = "Copied!";
+}
+
+// Function to download test file
+function setupDownload(filename) {
+	var text = document.querySelector("#output-text").value;
+	var btn = document.querySelector("#download-btn");
+	btn.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(text));
+	btn.setAttribute("download", filename)
 }
