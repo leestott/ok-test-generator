@@ -8,9 +8,10 @@ require 'erb'
 # create object to use for renderer that holds the text
 # of the output Python file
 class ReturnHTML
-	attr_accessor :tests_text
+	attr_accessor :test_name, :tests_text
 
-	def initialize tests_text
+	def initialize test_name, tests_text
+		@test_name = test_name
 		@tests_text = tests_text
 	end
 
@@ -19,11 +20,11 @@ class ReturnHTML
 	end
 end
 
-def get_return_page tests_text
+def get_return_page test_name, tests_text
 	# open template ERB file and create renderer
-	template = File.open("./views/return-page.erb").read()
+	template = File.open("./lib/views/return-page.erb").read()
 	renderer = ERB.new(template)
 
 	# render the Python file
-	renderer.result((ReturnHTML.new(tests_text)).get_binding())
+	renderer.result((ReturnHTML.new(test_name, tests_text)).get_binding())
 end

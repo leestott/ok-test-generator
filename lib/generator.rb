@@ -57,25 +57,6 @@ def query_to_hash params
 			curr_case[:locked] = true
 		end
 
-		# # if we are in output, put the pair into the hash
-		# # and reset them
-		# if curr_case[:locked]
-		# 	# add a new OkCase instance to the suite
-		# 	curr_suite.cases << OkCase.new(
-		# 		curr_case[:code],
-		# 		curr_case[:output],
-		# 		curr_case[:hidden],
-		# 		curr_case[:locked]
-		# 	)
-
-		# 	# reset the curr_case hash
-		# 	curr_case = {
-		# 		:code => nil,
-		# 		:output => nil,
-		# 		:hidden => false,
-		# 		:locked => false
-		# 	}
-		# end
 	}
 
 	# add in final test case
@@ -94,7 +75,7 @@ def create_suite params
 	curr_test = query_to_hash(params)
 
 	# load the test template ERB file and renderer
-	template = File.read("./views/test.erb")
+	template = File.read("./lib/views/test.erb")
 	renderer = ERB.new(template)
 
 	# render the ok test

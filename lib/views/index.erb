@@ -37,10 +37,23 @@
 		</header>
 
 
+		<!-- Flash Messages -->
+
+		<% if !session[:message].nil? %>
+
+			<div class="alert alert-danger">
+				
+				<p><%= session[:message] %></p>
+
+			</div>
+
+		<% end %>
+
+
 		<form id="test-generator" action="/generate">
 
 			<div class="form-group row">
-				<input type="text" name="testname" placeholder="Test Name" class="form-control col-md-3 offset-md-1">
+				<input type="text" name="testname" placeholder="Test Name" class="form-control col-md-3 offset-md-1" required>
 				<input type="text" name="points" placeholder="Points" class="form-control col-md-3 offset-md-1">
 				<div class="col-md-3 offset-md-1 form-control cases-checkbox">
 					<input type="checkbox" name="scored" class="form-check-input" id="scored">
