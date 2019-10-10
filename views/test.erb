@@ -1,6 +1,6 @@
 test = {
 	"name": "<%= @test_name == "" ? "test" : @test_name %>",
-	"points": <%= @points == "" ? 0 : @points %>,
+	"points": <%= @points == "" ? 1 : @points %>,
 	"suites": [ <% for suite in @suites %>
 		{
 			"cases": [ <% for test_case in suite.cases %>

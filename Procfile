@@ -1,1 +1,1 @@
-web: ruby lib/handler.rb
+web: ruby app.rb

@@ -75,7 +75,7 @@ def create_suite params
 	curr_test = query_to_hash(params)
 
 	# load the test template ERB file and renderer
-	template = File.read("./lib/views/test.erb")
+	template = File.read("./views/test.erb")
 	renderer = ERB.new(template)
 
 	# render the ok test

@@ -22,7 +22,7 @@ end
 
 def get_return_page test_name, tests_text
 	# open template ERB file and create renderer
-	template = File.open("./lib/views/return-page.erb").read()
+	template = File.open("./views/return-page.erb").read()
 	renderer = ERB.new(template)
 
 	# render the Python file

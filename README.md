@@ -6,6 +6,10 @@ The generator is at [https://oktests.herokuapp.com](https://oktests.herokuapp.co
 
 ## Changelog
 
+**v0.2.0:**
+
+* Changed "Copy to Clipboard" button to "Download" button
+
 **v0.1.1:**
 
 * Fixed bug where last test case was not included in output
