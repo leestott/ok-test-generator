@@ -9,20 +9,36 @@ function addCaseTest() {
 	var caseContainer = document.querySelector("#case-container");
 	caseTestCount++;
 
+	// Create div container for inputs
 	var divNode = document.createElement("DIV");
 	divNode.classList.add("form-group", "col-md-4");
+	divNode.id = "inputSet" + caseTestCount;
 
-	var firstInput = document.createElement("INPUT");
+	// // Add script to create first input
+	// scriptNode = document.createElement("SCRIPT");
+	// scriptNode.innerHTML = "addLine(" + caseTestCount + ", true);";
+
+	// Add first code input
+	var firstInput = document.createElement("TEXTAREA");
 	firstInput.classList.add("form-control", "code-input");
-	firstInput.type = "text"; firstInput.name = "caseCode" + caseTestCount; firstInput.placeholder = "Code";
-	
-	var secondInput = document.createElement("INPUT");
-	secondInput.classList.add("form-control", "code-input");
-	secondInput.type = "text"; secondInput.name = "caseOutput" + caseTestCount; secondInput.placeholder = "Output";
+	firstInput.name = "caseCode" + caseTestCount; firstInput.placeholder = "Code";
 
+	// // Add "Add a Line" button
+	// var addLineButton = document.createElement("BUTTON");
+	// addLineButton.innerHTML = "Add a Line"
+	// addLineButton.classList.add("btn", "btn-light");
+	// addLineButton.type = "button"; addLineButton.onclick = function() { addLine(caseTestCount); };
+	
+	// Add output container
+	var secondInput = document.createElement("TEXTAREA");
+	secondInput.classList.add("form-control", "code-input");
+	secondInput.name = "caseOutput" + caseTestCount; secondInput.placeholder = "Output";
+
+	// Add div for checkboxes
 	var checkboxDiv = document.createElement("DIV");
 	checkboxDiv.classList.add("row");
 	
+	// Add checkbox for hidden
 	var hiddenDiv = document.createElement("DIV");
 	hiddenDiv.classList.add("col-md-6", "cases-checkbox");
 	checkboxDiv.appendChild(hiddenDiv);
@@ -35,6 +51,7 @@ function addCaseTest() {
 	hiddenLabel.for = "hidden1"; hiddenLabel.innerHTML = "Hidden"
 	hiddenDiv.appendChild(hiddenInput); hiddenDiv.appendChild(hiddenLabel);
 
+	// Add checkbox for locked
 	var lockedDiv = document.createElement("DIV");
 	lockedDiv.classList.add("col-md-6", "cases-checkbox");
 	checkboxDiv.appendChild(lockedDiv);
@@ -47,7 +64,17 @@ function addCaseTest() {
 	lockedLabel.for = "locked1"; lockedLabel.innerHTML = "Locked"
 	lockedDiv.appendChild(lockedInput); lockedDiv.appendChild(lockedLabel);
 
-	divNode.appendChild(firstInput); divNode.appendChild(secondInput); divNode.appendChild(checkboxDiv);
+	// Add "Delete Test" button
+	var deleteButton = document.createElement("BUTTON");
+	deleteButton.innerHTML = "Delete Test"
+	deleteButton.classList.add("btn", "btn-light", "offset-md-1", "col-md-10");
+	deleteButton.type = "button"; deleteButton.onclick = function() { deleteTest(caseTestCount); };
+
+	// Append children
+	// divNode.appendChild(firstInput); divNode.appendChild(addLineButton); 
+	divNode.appendChild(firstInput);
+	divNode.appendChild(secondInput); divNode.appendChild(checkboxDiv);
+	divNode.appendChild(document.createElement("BR")); divNode.appendChild(deleteButton);
 	
 	caseContainer.appendChild(divNode);
 }
@@ -69,4 +96,36 @@ function setupDownload(filename) {
 	var btn = document.querySelector("#download-btn");
 	btn.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(text));
 	btn.setAttribute("download", filename)
+}
+
+// // Function to add line to test case
+// function addLine(testNum, firstAdd=false) {
+// 	var test = document.querySelector("#inputSet" + testNum);
+// 	var output = document.querySelector("#inputSet" + testNum + " input:last-of-type");
+// 	var prevInput = document.querySelector("#inputSet" + testNum + " input:nth-last-of-type(2)");
+// 	var prevButton = document.querySelector("#inputSet" + testNum + " button:nth-last-of-type(2)");
+
+// 	if (!firstAdd) {
+// 		prevButton.innerHTML = "Delete Line";
+// 		prevButton.onclick = function() { test.removeChild(prevInput); test.removeChild(prevButton); };
+// 	}
+
+// 	var newInput = document.createElement("INPUT");
+// 	newInput.classList.add("form-control", "code-input", "col-md-7");
+// 	newInput.type = "text"; newInput.name = "caseCode" + testNum; newInput.placeholder = "Code";
+
+// 	var newButton = document.createElement("BUTTON");
+// 	newButton.innerHTML = "Add a Line"
+// 	newButton.classList.add("btn", "btn-light", "col-md-4", "offset-md-1");
+// 	newButton.type = "button"; newButton.onclick = function() { addLine(testNum); };
+
+// 	test.insertBefore(newInput, output);
+// 	test.insertBefore(newButton, output);
+// }
+
+// Function to delete a test case
+function deleteTest(testNum) {
+	var caseContainer = document.querySelector("#case-container");
+	var test = document.querySelector("#inputSet" + testNum);
+	caseContainer.removeChild(test);
 }

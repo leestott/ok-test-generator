@@ -7,7 +7,6 @@ require 'sinatra'
 require 'sinatra/flash'
 require_relative './lib/generator.rb'
 require_relative './lib/return-page.rb'
-require_relative './lib/download.rb'
 
 # app class for Sinatra
 class App < Sinatra::Base
@@ -43,7 +42,7 @@ class App < Sinatra::Base
 		test_name = tests.match /"name": "(.+)",/
 
 		# create and write the Python file for dowload
-		create_python_file test_name[1], tests
+		# create_python_file test_name[1], tests
 
 		# render the HTML for the result page
 		page = get_return_page test_name[1], tests

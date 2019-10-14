@@ -14,10 +14,6 @@ class OkCase
 		@locked = locked
 	end
 
-	def add_case new_case
-		cases.push(new_case)
-	end
-
 	def get_binding
 		binding()
 	end
@@ -30,6 +26,10 @@ class OkSuite
 	def initialize cases: [], scored: false
 		@cases = cases
 		@scored = scored
+	end
+
+	def add_case new_case
+		@cases.push(new_case)
 	end
 
 	def get_binding

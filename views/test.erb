@@ -5,9 +5,9 @@ test = {
 		{
 			"cases": [ <% for test_case in suite.cases %>
 				{
-					"code": r"""
-					>>> <%= test_case.code %>
-					<%= test_case.output %>
+					"code": r"""<% i = 0; test_case.code.each_line do |line| %>
+					<%= i == 0 ? ">>>" : "..." %> <%= line.delete_suffix("\n") %><% i += 1; end %><% i = 0; test_case.output.each_line do |line| %>
+					<%= line.delete_suffix("\n") %><% i += 1; end %>
 					""",
 					"hidden": <%= test_case.hidden ? "True" : "False" %>,
 					"locked": <%= test_case.locked ? "True" : "False" %>,

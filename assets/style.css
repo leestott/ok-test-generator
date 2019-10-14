@@ -89,6 +89,7 @@ footer div a:link, footer div a:hover, footer div a:visited {
 
 input.form-control {
 	margin-top: 10px;
+	display: inline-block;
 }
 
 /*div.form-group.row input.form-control {
@@ -100,7 +101,7 @@ div.form-group.row button, button.return-button {
 	width: 100%;
 }
 
-input.code-input {
+input.code-input, textarea.code-input {
 	font-family: monospace;
 	font-size: 15px;
 }
