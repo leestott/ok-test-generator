@@ -62,5 +62,7 @@ class App < Sinatra::Base
 
 end
 
-# run app
-run App.run!
+if __FILE__ == $0
+	# run app
+	run App.run!
+end

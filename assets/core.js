@@ -68,7 +68,7 @@ function addCaseTest() {
 	var deleteButton = document.createElement("BUTTON");
 	deleteButton.innerHTML = "Delete Test"
 	deleteButton.classList.add("btn", "btn-light", "offset-md-1", "col-md-10");
-	deleteButton.type = "button"; deleteButton.onclick = function() { deleteTest(caseTestCount); };
+	deleteButton.type = "button"; deleteButton.onclick = function() { deleteTest(deleteButton.parentNode.id); };
 
 	// Append children
 	// divNode.appendChild(firstInput); divNode.appendChild(addLineButton); 
@@ -124,8 +124,8 @@ function setupDownload(filename) {
 // }
 
 // Function to delete a test case
-function deleteTest(testNum) {
+function deleteTest(divSelector) {
 	var caseContainer = document.querySelector("#case-container");
-	var test = document.querySelector("#inputSet" + testNum);
+	var test = document.querySelector("#" + divSelector);
 	caseContainer.removeChild(test);
 }

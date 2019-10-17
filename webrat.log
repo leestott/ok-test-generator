@@ -1,0 +1,7 @@
+# Logfile created on 2019-10-15 13:10:53 -0700 by logger.rb/61378
+D, [2019-10-15T13:10:53.838857 #19500] DEBUG -- : REQUESTING PAGE: GET / with {} and HTTP headers {}
+D, [2019-10-15T13:11:01.800274 #19503] DEBUG -- : REQUESTING PAGE: GET / with {} and HTTP headers {}
+D, [2019-10-15T13:12:49.122278 #19517] DEBUG -- : REQUESTING PAGE: GET / with {} and HTTP headers {}
+D, [2019-10-15T13:12:58.645316 #19519] DEBUG -- : REQUESTING PAGE: GET / with {} and HTTP headers {}
+D, [2019-10-15T13:13:14.755347 #19521] DEBUG -- : REQUESTING PAGE: GET / with {} and HTTP headers {}
+D, [2019-10-15T13:14:26.349260 #19525] DEBUG -- : REQUESTING PAGE: GET / with {} and HTTP headers {}
