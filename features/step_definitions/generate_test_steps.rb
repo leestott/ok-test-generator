@@ -42,3 +42,27 @@ Then /I should see "(.*)"/ do |message_text|
 	message = page.find("form#test-generator input:nth-of-type(1)").native.attribute("validationMessage")
   expect(message).to eq message_text
 end
+
+Then /I should see an empty test/ do
+	regexp = /"code": r"""\n\t{5}"""/
+	text_area = find("#output-text")
+	expect(text_area).to have_content(regexp)
+end
+
+When /I press "(\w+)" in the (code|output) input/ do |char, inp|
+	if inp == "code"
+		input = find("#inputSet1 textarea:nth-of-type(1)")
+	elsif inp == "output"
+		input = find("#inputSet1 textarea:nth-of-type(2)")
+	end
+	input.native.send_keys(char.to_sym)
+end
+
+Then /there should be a "([\s\w\d])" character in the (code|output) input/ do |char, inp|
+	if inp == "code"
+		input = find("#inputSet1 textarea:nth-of-type(1)")
+	elsif inp == "output"
+		input = find("#inputSet1 textarea:nth-of-type(2)")
+	end
+	expect(input.value).to eq char
+end
