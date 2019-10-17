@@ -101,7 +101,8 @@ div.form-group.row button, button.return-button {
 	width: 100%;
 }
 
-input.code-input, textarea.code-input {
+input.code-input, textarea.code-input, 
+input[name="testname"], input[name="points"] {
 	font-family: monospace;
 	font-size: 15px;
 }
