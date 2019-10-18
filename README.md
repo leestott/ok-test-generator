@@ -8,6 +8,11 @@ The generator is at [https://oktests.herokuapp.com](https://oktests.herokuapp.co
 
 ## Changelog
 
+**v0.3.0:**
+
+* Added Cucumber tests
+* Added Travis CI and Codecov
+
 **v0.2.0:**
 
 * Changed "Copy to Clipboard" button to "Download" button
