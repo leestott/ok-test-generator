@@ -8,6 +8,3 @@ before_install:
 
 script:
   - bundle exec cucumber
-
-after_success:
-  - codecov
