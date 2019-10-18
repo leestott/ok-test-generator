@@ -1,6 +1,13 @@
 # NOTE: change the filename on this line to match yours!
 require File.join(File.dirname(__FILE__), *%w[.. .. app.rb])
 
+# codecov:
+require 'simplecov'
+SimpleCov.start
+
+require 'codecov'
+SimpleCov.formatter = SimpleCov::Formatter::Codecov
+
 # NOTE: I deleted lines related to 'app_file'
 
 require 'rspec/expectations'

@@ -16,6 +16,7 @@ GEM
     capybara-screenshot (1.0.23)
       capybara (>= 1.0, < 4)
       launchy
+    childprocess (3.0.0)
     cliver (0.3.2)
     coderay (1.1.2)
     cucumber (3.1.2)
@@ -103,6 +104,10 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
     rspec-support (3.9.0)
+    rubyzip (2.0.0)
+    selenium-webdriver (3.142.6)
+      childprocess (>= 0.5, < 4.0)
+      rubyzip (>= 1.2.2)
     shellany (0.0.1)
     sinatra (2.0.7)
       mustermann (~> 1.0)
@@ -138,6 +143,7 @@ DEPENDENCIES
   rack-test
   rerun (~> 0.13.0)
   rspec
+  selenium-webdriver
   sinatra (= 2.0.7)
   sinatra-flash (= 0.3.0)
   webrat

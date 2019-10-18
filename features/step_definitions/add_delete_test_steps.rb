@@ -1,12 +1,12 @@
-Given /I am viewing "(.*)"/ do |url|
+Given /^I am viewing "(.*)"$/ do |url|
 	visit(url)
 end
 
-When /I click "(.*)" once/ do |button|
+When /^I click "(.*)" once$/ do |button|
 	click_on(button)
 end
 
-When /I click "(.*)" (\d+) times/ do |button, n|
+When /^I click "(.*)" (\d+) times$/ do |button, n|
 	for _ in 0...n
 		steps %{
 			When I click "#{button}" once
@@ -14,7 +14,7 @@ When /I click "(.*)" (\d+) times/ do |button, n|
 	end
 end
 
-Then /I should see (\d+) test entries/ do |n|
+Then /^I should see (\d+) test entries$/ do |n|
 	for i in 1..n
 		steps %{
 			an #{n}th test entry should appear
@@ -22,19 +22,19 @@ Then /I should see (\d+) test entries/ do |n|
 	end
 end
 
-Then /an? (\d+)\w{2} test entry should appear/ do |n|
+Then /^an? (\d+)\w{2} test entry should appear$/ do |n|
 	expect(page).to have_selector("div#inputSet#{n}")
 end
 
-Then /there should not be an? (\d+)\w{2} test entry/ do |n|
+Then /^there should not be an? (\d+)\w{2} test entry$/ do |n|
 	expect(page).not_to have_selector("div#inputSet#{n}")
 end
 
-When /I delete the (\d+)\w{2} test/ do |n|
+When /^I delete the (\d+)\w{2} test$/ do |n|
 	find("#inputSet#{n}").click_on("Delete Test")
 end
 
-When /I delete tests: (.*)/ do |tests|
+When /^I delete tests: (.*)$/ do |tests|
 	tests = tests.split(/\s*,\s*/)
 	tests.map! do |i| i.to_i end
 	tests.each do |i|
@@ -44,7 +44,7 @@ When /I delete tests: (.*)/ do |tests|
 	end
 end
 
-Then /I should see only the tests: (.*)/ do |tests|
+Then /^I should see only the tests: (.*)$/ do |tests|
 	tests = tests.split(/\s*,\s*/)
 	tests.map! do |i| i.to_i end
 	(tests.max() + 5).times do |i|

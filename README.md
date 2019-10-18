@@ -1,5 +1,7 @@
 # Okpy Test Generator
 
+[![Build Status](https://travis-ci.org/chrispyles/okpy-test-generator.svg?branch=master)](https://travis-ci.org/chrispyles/okpy-test-generator) [![codecov](https://codecov.io/gh/chrispyles/okpy-test-generator/branch/master/graph/badge.svg)](https://codecov.io/gh/chrispyles/okpy-test-generator)
+
 This is the source code for a Heroku-deployed webapp that generates Python test cases in ok format. This test format is used in various autograders, including [okpy](https://github.com/okpy/ok) and [gofer-grader](https://github.com/data-8/gofer-grader).
 
 The generator is at [https://oktests.herokuapp.com](https://oktests.herokuapp.com).

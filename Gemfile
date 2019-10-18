@@ -20,4 +20,6 @@ group :test do
 	gem 'capybara'
 	gem 'capybara-screenshot'
 	gem 'poltergeist'
+	gem 'selenium-webdriver'
+	gem 'codecov'
 end
