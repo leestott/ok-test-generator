@@ -6,7 +6,6 @@
 require 'sinatra'
 require 'sinatra/flash'
 require_relative './lib/generator.rb'
-require_relative './lib/return-page.rb'
 
 # app class for Sinatra
 class App < Sinatra::Base
@@ -15,7 +14,6 @@ class App < Sinatra::Base
 
 	# route to access homepage
 	get "/" do
-		%x(make clean) # defined  in the Makefile
 		page = erb :index
 		session[:message] = nil
 		page
@@ -36,28 +34,16 @@ class App < Sinatra::Base
 	# route to generate tests
 	get "/generate" do
 		# generate Python text
-		tests = create_suite params
+		@tests = create_suite params
 
 		# search for test name
-		test_name = tests.match /"name": "(.+)",/
+		@test_name = @tests.test_name
 
-		# create and write the Python file for dowload
-		# create_python_file test_name[1], tests
+		# create Python file using ERB
+		@py_file = erb :test
 
-		# render the HTML for the result page
-		page = get_return_page test_name[1], tests
-		page
-	end
-
-	get "/download/:test.py" do
-		# return Python file for download
-		File.read("./output-tests/" + params[:test] + ".py")
-	end
-
-	# route to download tests
-	get "/download" do
-		session[:message] = "No file to download!"
-		redirect '/'
+		# return the return page template
+		erb :return_page
 	end
 
 end

@@ -8,6 +8,10 @@ The generator is at [https://oktests.herokuapp.com](https://oktests.herokuapp.co
 
 ## Changelog
 
+**v0.3.1:**
+
+* Removed extraneous code
+
 **v0.3.0:**
 
 * Added Cucumber tests

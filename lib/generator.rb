@@ -6,7 +6,7 @@
 require 'erb'
 require_relative './test.rb'
 
-def query_to_hash params
+def create_test_obj params
 	# create an OkTest instance for the test
 	curr_test = OkTest.new(params[:testname], params[:points])
 
@@ -72,14 +72,6 @@ end
 
 def create_suite params
 	# create the code => output hash
-	curr_test = query_to_hash(params)
-
-	# load the test template ERB file and renderer
-	template = File.read("./views/test.erb")
-	renderer = ERB.new(template)
-
-	# render the ok test
-	finished_test = renderer.result(curr_test.get_binding());
-
-	return finished_test
+	curr_test = create_test_obj(params)
+	return curr_test
 end

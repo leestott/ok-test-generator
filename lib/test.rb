@@ -13,10 +13,6 @@ class OkCase
 		@hidden = hidden
 		@locked = locked
 	end
-
-	def get_binding
-		binding()
-	end
 end
 
 # class for ok suites
@@ -31,10 +27,6 @@ class OkSuite
 	def add_case new_case
 		@cases.push(new_case)
 	end
-
-	def get_binding
-		binding()
-	end
 end
 
 # class for ok tests
@@ -45,37 +37,5 @@ class OkTest
 		@test_name = test_name
 		@points = points
 		@suites = suites
-
-		# iterate through suits
-		for suite in suites
-
-			# collect OkCase instances
-			test_cases = []
-
-			# iterate through cases
-			for test_case in suite[:cases]
-
-				# extract the array of code hashes, create new
-				# OkCase instance
-				code = test_case[:code]
-				cases = []
-
-				for code_hash in code 
-					curr_case = OkCase.new(code_hash[:code], code_hash[:output],
-						code_hash[:hidden], code_hash[:locked])
-					cases.push(curr_case)
-				end
-
-				# add the OkCase instance to test_cases
-				test_cases.push(cases)
-			end
-
-			# push test_cases to the suites array
-			@suites.push(test_cases)
-		end
-	end
-
-	def get_binding
-		binding()
 	end
 end
