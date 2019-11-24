@@ -76,7 +76,7 @@
 
 				<div class="row" id="case-container">
 
-					<div class="form-group col-md-4" id="inputSet1">
+					<div class="form-group col-md-6" id="inputSet1">
 						<textarea name="caseCode1" placeholder="Code" class="form-control code-input"></textarea>
 						<!-- <script type="text/javascript">addLine(1, true);</script> -->
 						<!-- <input type="text" name="caseCode1" placeholder="Code" class="form-control code-input col-md-7">
@@ -138,18 +138,7 @@
 
 	<!-- Solution below found from https://stackoverflow.com/a/14166052 -->
 	<script type="text/javascript">
-		var textareas = document.getElementsByTagName('textarea');
-		var count = textareas.length;
-		for(var i=0;i<count;i++){
-		    textareas[i].onkeydown = function(e){
-		        if(e.keyCode==9 || e.which==9){
-		            e.preventDefault();
-		            var s = this.selectionStart;
-		            this.value = this.value.substring(0,this.selectionStart) + "\t" + this.value.substring(this.selectionEnd);
-		            this.selectionEnd = s+1; 
-		        }
-		    }
-		}
+		captureTabKey();
 	</script>
 
 </body>

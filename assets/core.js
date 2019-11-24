@@ -4,6 +4,22 @@
 
 var caseTestCount = 1;
 
+// Function to capture the TAB key in all textareas
+function captureTabKey() {
+	var textareas = document.getElementsByTagName('textarea');
+	var count = textareas.length;
+	for(var i=0; i<count; i++){
+	    textareas[i].onkeydown = function(e){
+	        if(e.keyCode==9 || e.which==9){
+	            e.preventDefault();
+	            var s = this.selectionStart;
+	            this.value = this.value.substring(0,this.selectionStart) + "\t" + this.value.substring(this.selectionEnd);
+	            this.selectionEnd = s+1; 
+	        }
+	    }
+	}
+}
+
 // Function to add sections to form for new test cases
 function addCaseTest() {
 	var caseContainer = document.querySelector("#case-container");
@@ -11,7 +27,7 @@ function addCaseTest() {
 
 	// Create div container for inputs
 	var divNode = document.createElement("DIV");
-	divNode.classList.add("form-group", "col-md-4");
+	divNode.classList.add("form-group", "col-md-6");
 	divNode.id = "inputSet" + caseTestCount;
 
 	// // Add script to create first input
@@ -77,6 +93,8 @@ function addCaseTest() {
 	divNode.appendChild(document.createElement("BR")); divNode.appendChild(deleteButton);
 	
 	caseContainer.appendChild(divNode);
+
+	captureTabKey();
 }
 
 // Function to copy test output

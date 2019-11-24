@@ -32,12 +32,6 @@ Feature: generate test cases
 		| prompt | output |
 		| 1 == 1 | True   |
 
-	# Scenario: try to leave test name field blank
-	# 	Given I am viewing "/"
-	# 	When I click "Submit" once
-	# 	Then I should be on "/"
-	# 	And I should see "Please fill out this field."
-
 	Scenario: leave non-required inputs blank
 		When I create a no point unscored test "q1":
 		| code 	 | output | hidden | locked |
