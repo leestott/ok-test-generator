@@ -8,7 +8,7 @@ require_relative './test.rb'
 
 def create_test_obj params
 	# create an OkTest instance for the test
-	curr_test = OkTest.new(params[:testname], params[:points])
+	curr_test = OkTest.new(params[:testname], params[:points], !params[:visible].nil?)
 
 	# create a suite
 	scored = !params[:scored].nil?

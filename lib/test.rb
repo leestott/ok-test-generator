@@ -31,11 +31,12 @@ end
 
 # class for ok tests
 class OkTest
-	attr_accessor :test_name, :points, :suites
+	attr_accessor :test_name, :points, :suites, :visible
 
-	def initialize test_name, points, suites: []
+	def initialize test_name, points, visible, suites: []
 		@test_name = test_name
 		@points = points
 		@suites = suites
+		@visible = visible
 	end
 end
