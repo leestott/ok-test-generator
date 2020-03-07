@@ -12,9 +12,11 @@ var testTemplate = _.template(`test = {
 		{
 			"cases": [ <% _(cases).each((testCase) => { %>
 				{
-					"code": r"""<% _(testCase.code).each((line, i) => { %>
-					<%= i != 0 && (line.startsWith("\t") || line.startsWith("  ")) ? "..." : ">>>" %> <%= line %><% }); _(testCase.output).each((line, i) => { %>
-					<%= line %><% }); %>
+					"code": r"""<% if (testCase.code.length != 1 || testCase.code[0] != "") { 
+						_(testCase.code).each((line, i) => { %>
+					<%= i != 0 && (line.startsWith("\t") || line.startsWith("  ")) ? "..." : ">>>" %> <%= line %><% }); }
+					if (testCase.output.length != 1 || testCase.output[0] != "") { _(testCase.output).each((line, i) => { %>
+					<%= line %><% }); } %>
 					""",
 					"hidden": <%= testCase.hidden ? "True" : "False" %>,
 					"locked": <%= testCase.locked ? "True" : "False" %>,
