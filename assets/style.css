@@ -133,13 +133,13 @@ div.form-group textarea:last-of-type {
 }
 
 
-/* Return Page */
+/* Return Box */
 
 button.return-button {
 	margin-top: 20px;
 }
 
-textarea.output {
+textarea.generated-file {
 	display: block;
 	height: 400px;
 	background: #eee;
@@ -148,4 +148,9 @@ textarea.output {
 	font-family: monospace;
 	font-size: 15px;
 	width: 100%;
+}
+
+div#results {
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
