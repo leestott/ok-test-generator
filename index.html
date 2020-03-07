@@ -4,13 +4,16 @@
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<title>Okpy Test Generator</title>
+	<title>Ok Test Generator</title>
 
 	<!-- Load Bootstrap and its JS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- Underscore.js -->
+    <script type="text/javascript" src="assets/underscore-min.js"></script>
 
 	<!-- Custom CSS and JavaScript -->
 	<link rel="stylesheet" type="text/css" href="assets/style.css">
@@ -37,20 +40,7 @@
 		</header>
 
 
-		<!-- Flash Messages -->
-
-		<% if !session[:message].nil? %>
-
-			<div class="alert alert-danger">
-				
-				<p><%= session[:message] %></p>
-
-			</div>
-
-		<% end %>
-
-
-		<form id="test-generator" action="/generate">
+		<form id="test-generator">
 
 			<div class="form-group row">
 
@@ -80,21 +70,21 @@
 
 				<div class="row" id="case-container">
 
-					<div class="form-group col-md-6" id="inputSet1">
-						<textarea name="caseCode1" placeholder="Code" class="form-control code-input"></textarea>
+					<div class="form-group col-md-6 case" id="inputSet1">
+						<textarea name="caseCode1" placeholder="Code" class="form-control code-input code"></textarea>
 						<!-- <script type="text/javascript">addLine(1, true);</script> -->
 						<!-- <input type="text" name="caseCode1" placeholder="Code" class="form-control code-input col-md-7">
 						<button type="button" class="btn btn-light col-md-4 offset-md-1" onclick="addLine(1)">Add a Line</button> -->
-						<textarea name="caseOutput1" placeholder="Output" class="form-control code-input"></textarea>
+						<textarea name="caseOutput1" placeholder="Output" class="form-control code-input output"></textarea>
 						<!-- <input type="text" name="caseOutput1" placeholder="Output" class="form-control code-input"> -->
 
 						<div class="row">
 							<div class="col-md-6 cases-checkbox">
-								<input type="checkbox" name="hidden1" class="form-check-input" id="hidden1">
+								<input type="checkbox" name="hidden1" class="form-check-input hidden" id="hidden1">
 								<label class="form-check-label" for="hidden1">Hidden</label>
 							</div>
 							<div class="col-md-6 cases-checkbox">
-								<input type="checkbox" name="locked1" class="form-check-input" id="locked1">
+								<input type="checkbox" name="locked1" class="form-check-input locked" id="locked1">
 								<label class="form-check-label" for="locked1">Locked</label>
 							</div>
 						</div>
@@ -111,16 +101,16 @@
 
 			</div>
 
-			<div class="form-group row">
-				<div class=" col-md-3 offset-md-3">
-					<button type="button" class="btn btn-light mx-auto" onclick="addCaseTest()" id="add-case">Add a Test</button>
-				</div>
-				<div class="col-md-3">
-					<button type="submit" class="btn btn-light mx-auto">Submit</button>
-				</div>
-			</div>
-
-		</form>
+        </form>
+        
+        <div class="form-group row">
+            <div class=" col-md-3 offset-md-3">
+                <button type="button" class="btn btn-light mx-auto" onclick="addCaseTest()" id="add-case">Add a Test</button>
+            </div>
+            <div class="col-md-3">
+                <button onclick="generateTest()" class="btn btn-light mx-auto">Generate</button>
+            </div>
+        </div>
 
 	</div>
 
@@ -128,10 +118,10 @@
 		
 		<div class="row">
 			<div class="col-md-4 text-center py-4">
-				<a href="https://github.com/ucbds-infra/otter-grader/blob/master/docs/index.md">Otter-Grader Documentation</a>
+				<a href="https://otter-grader.readthedocs.io">Otter-Grader Documentation</a>
 			</div>
 			<div class="col-md-4 text-center py-4" id="copyright">
-				© 2019, Christopher Pyles
+				© 2020, Christopher Pyles
 			</div>
 			<div class="col-md-4 text-center py-4">
 				<a href="https://okgrade.readthedocs.io/en/latest/">Gofer Grader Documentation</a>
