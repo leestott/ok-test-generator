@@ -166,8 +166,8 @@ function testToObject() {
 	test = {
 		name: $("[name='testname']").val(),
 		points: $("[name='points']").val(),
-		scored: $("[name='scored']").is("checked"),
-		hidden: !$("#visible").is("checked"),
+		scored: $("[name='scored']").prop("checked"),
+		hidden: !$("input#visible").prop("checked"),
 		suites: [{
 			cases: []
 		}]
@@ -176,8 +176,8 @@ function testToObject() {
 		var thisCase = {
 			code: $(testCase).find(".code").val().split("\n"),
 			output: $(testCase).find(".output").val().split("\n"),
-			hidden: $(testCase).find(".hidden").is("checked"),
-			locked: $(testCase).find(".locked").is("checked")
+			hidden: $(testCase).find(".hidden").prop("checked"),
+			locked: $(testCase).find(".locked").prop("checked")
 		}
 		test.suites[0].cases.push(thisCase);
 	});
